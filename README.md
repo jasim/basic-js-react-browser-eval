@@ -1,5 +1,7 @@
 # Single-file React JavaScript execution in browser
 
-User can type in JavaScript code and evaluate it. It can contain JSX and React.
-No other external modules are possible. 
+[Demo](https://basic-js-react-browser-eval.surge.sh/)
 
+* Evaluate JS+React+JSX code in the browser.
+* Babel with react preset is run on the code to transpile JSX.
+* Browser native ES6 module system is used for dynamic module imports.
