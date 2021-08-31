@@ -13,22 +13,12 @@ function executeScript() {
   ES6 module imports. This way we can avoid an explicit bundling step.
   (https://www.sitepoint.com/using-es-modules/)
   */
-
   let userScript = document.getElementById("userScript")
   if (userScript) userScript.remove()
 
   userScript = document.createElement('script')
   userScript.setAttribute("id", "userScript")
   userScript.setAttribute("type", "module")
-
-
-  /*
-  If we wanted to isolate scope, we could use the function wrapping technique from
-  https://2ality.com/2014/01/eval.html : 'new Function()'
-
-    let fn = new Function(`"use strict";\n ${code}`);
-    fn()
-  */
   userScript.text = code
 
   document.body.appendChild(userScript);
