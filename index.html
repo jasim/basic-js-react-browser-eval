@@ -14,15 +14,43 @@
 </head>
 
 <body>
+
+
+<!--
+<script src="systemjs.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+-->
+
 <script src="index.js"></script>
 
 <div class="p-8">
   <h1 class="text-xl mb-8">Single-file React JSX execution environment</h1>
+
   <textarea id="code" class="block mb-8 w-96 h-80 border border-black p-4" autofocus>
-console.log("Hello")
+import React, { useState } from "https://cdn.skypack.dev/react@17.0.1";
+import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
+
+function Example() {
+  const [count, setCount] = useState(0);
+  return React.createElement("div", null,
+    React.createElement("p", null, "You clicked ", count, " times"),
+    React.createElement("button", { onClick: () => setCount(count + 1) }, "Click me")
+  );
+}
+
+ReactDOM.render(
+  React.createElement(Example, null),
+  document.getElementById("react_root")
+);
   </textarea>
 
   <button class="bg-gray-100 p-4 w-32" onClick="executeScript()">Execute</button>
+
+  <div class="border p-4">
+    <div id="react_root"/>
+  </div>
+
 </div>
 </body>
 
